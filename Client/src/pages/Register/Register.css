@@ -1,0 +1,160 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0efe9;
+  padding: 20px;
+}
+
+.register-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.register-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+}
+
+.italic-accent {
+  font-style: italic;
+  color: #e05c2b;
+  font-weight: 500;
+}
+
+.register-subtitle {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0 0 28px 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  border: 1px solid #e5e3db;
+  border-radius: 10px;
+  background-color: #f4f3ee;
+  font-size: 14px;
+  color: #1a1a2e;
+  box-sizing: border-box;
+}
+
+.input-wrapper input::placeholder {
+  color: #9ca3af;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: #e05c2b;
+  background-color: #ffffff;
+}
+
+.input-icon {
+  position: absolute;
+  right: 14px;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.input-icon.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #1a1a2e;
+}
+
+.form-checkbox input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.form-checkbox a {
+  color: #e05c2b;
+  text-decoration: underline;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #e05c2b;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.register-btn:hover {
+  background-color: #c94e21;
+}
+
+.divider {
+  text-align: center;
+  border-top: 1px solid #e5e3db;
+  margin: 24px 0 16px;
+  position: relative;
+}
+
+.divider span {
+  position: relative;
+  top: -10px;
+  background: #fff;
+  padding: 0 12px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.signin-link {
+  text-align: center;
+  font-size: 14px;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.signin-link a {
+  color: #e05c2b;
+  font-weight: 600;
+  text-decoration: none;
+}
