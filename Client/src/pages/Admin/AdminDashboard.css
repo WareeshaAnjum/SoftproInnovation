@@ -24,12 +24,12 @@
 }
 
 .brand-mark {
-  color: #e05c2b;
+  color: #171E96;
   font-style: italic;
 }
 
 .brand-accent {
-  color: #e05c2b;
+  color: #171E96;
 }
 
 .top-nav {
@@ -65,7 +65,7 @@
   padding: 8px 16px;
   border-radius: 8px;
   border: none;
-  background: #e05c2b;
+  background: #171E96;
   color: #fff;
   font-size: 13px;
   font-weight: 600;
@@ -120,7 +120,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #e05c2b;
+  background: #171E96;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,7 +140,7 @@
 }
 
 .admin-badge {
-  background: #e05c2b;
+  background: #171E96;
   font-size: 11px;
   font-weight: 700;
   padding: 2px 10px;
@@ -179,7 +179,7 @@
 }
 
 .sidebar-link.active {
-  background: #e05c2b;
+  background: #171E96;
   color: #fff;
 }
 
@@ -191,7 +191,7 @@
   margin-top: 24px;
   border: none;
   background: transparent;
-  color: #ef4444;
+  color: #171E96;
   font-size: 14px;
   cursor: pointer;
 }
@@ -211,7 +211,7 @@
 
 .italic-accent {
   font-style: italic;
-  color: #e05c2b;
+  color: #171E96;
 }
 
 .page-subtitle {
@@ -299,7 +299,7 @@
 }
 
 .action-btn.primary {
-  background: #e05c2b;
+  background: #171E96;
   color: #fff;
   border: none;
 }
@@ -335,4 +335,8 @@
 .notice-body a {
   color: #2563eb;
   font-weight: 600;
+}
+
+.admin-main{
+  padding-left: 10px;
 }

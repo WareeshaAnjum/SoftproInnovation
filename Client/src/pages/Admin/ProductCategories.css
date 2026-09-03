@@ -1,0 +1,157 @@
+.pc-page {
+  min-height: 100vh;
+  background-color: #f8f9fc;
+}
+
+/* Stat cards */
+.pc-stat-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+}
+
+.pc-stat-card-active {
+  background-color: #f0fdf6;
+  border-color: #d4f0e0;
+}
+
+.pc-stat-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.pc-stat-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  color: #1e293b;
+}
+
+/* Table card */
+.pc-table-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.pc-table thead th {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94a3b8;
+  border-bottom: 1px solid #f1f5f9;
+  padding: 0.9rem 1rem;
+}
+
+.pc-table tbody td {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.pc-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Search box */
+.pc-search {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.pc-search i {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.pc-search input {
+  padding-left: 2.1rem;
+}
+
+/* Status badges */
+.pc-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.pc-badge-active {
+  background-color: #ecfdf3;
+  color: #15803d;
+}
+
+.pc-badge-inactive {
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+/* Status toggle buttons inside modal */
+.pc-status-btn-active {
+  background-color: #ecfdf3;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+}
+
+.pc-status-btn-inactive {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+
+/* Image previews */
+.pc-image-preview {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  background-color: #f8fafc;
+  overflow: hidden;
+}
+
+.pc-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pc-image-preview-sm {
+  width: 38px;
+  height: 38px;
+}
+
+/* Modal overlay */
+.pc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background-color: rgba(15, 23, 42, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.pc-modal {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 1rem;
+  border: none;
+}
+
+.pc-modal-sm {
+  max-width: 380px;
+}
+.admin-main{
+  padding: 0;
+}

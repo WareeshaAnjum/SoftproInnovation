@@ -7,10 +7,11 @@ import Heroes from "./Heroes";
 import Loved from "./Loved";
 import Ahead from "./Ahead";
 import Footer from "./Footer";
-
+import Header from "../../components/Header";
 const Home = () => {
   return (
     <>
+    <Header/>
        <Slider></Slider>
       <Hero/>
       <Browse></Browse>

@@ -24,7 +24,7 @@ const AdminLogin = () => {
                    localStorage.setItem("adminId", res.data.adminId)
 
                 alert("successfully logged in")
-                
+                navigate('/admin')
             }else{
                 console.log("sorry");
                 alert(res);

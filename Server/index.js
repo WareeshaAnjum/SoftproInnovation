@@ -4,14 +4,16 @@ const dotenv= require('dotenv')
 const mongoDb= require('./config/db')
 const app= express();
 app.use(express.json());
-
+app.use("/uploads", express.static("uploads"));
 dotenv.config();
 mongoDb();
 
 app.use(cors());
 app.use("/api/admin", require("./routes/adminRoute") )
 app.use("/api/user", require("./routes/userRoute") )
-app.use("/api/category", require("./routes/categoryRoute") )
+app.use("/api/category", require("./routes/categoryRoute") ) 
+app.use("/api/product", require("./routes/ProductRoute") ) 
+
 app.listen(process.env.PORT, ()=>{
     console.log("Server is running");
     

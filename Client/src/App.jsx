@@ -1,50 +1,41 @@
-import React from 'react'
-import Home from './pages/Home/Home'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import '@splidejs/react-splide/css';
+import Header from './components/Header';
+import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
-import '@splidejs/react-splide/css';
-import { createBrowserRouter, RouterProvider} from 'react-router-dom'
-import Header from './components/Header';
-import AdminDashboard from './pages/Admin/AdminDashboard';
+import Products from './pages/Products/Products';
 import AdminLogin from './pages/Admin/AdminLogin';
-import Products from './pages/Products/Products'
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import AdminHome from './pages/Admin/AdminHome';
+// import Category from './pages/Admin/ProductCategories';
+// import Products from './pages/Products/Products';
+import Category from "../src/pages/Admin/Category"
 
 const App = () => {
-  const router= createBrowserRouter ([
-    {
-      path: '/',
-      element: <Home/>
-    },
-    {
-      path: '/products',
-      element: <Products/>
-    },
-    {
-      path: '/login',
-      element: <Login/>
-    },
-    {
-      path: '/register',
-      element: <Register/>
-    },
-     {
-      path: '/admin/login',
-      element: <AdminLogin/> 
-    },
-     {
-      path: '/admin/',
-      element: <AdminDashboard/> 
-    },
-
-  ])
   return (
-   <>
-   <Header/>
-    <RouterProvider router={router}/>
+    <BrowserRouter>
+      {/* <Header /> */}
 
-   </>
-  
-  )
-}
+      <Routes>
+        {/* User Routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-export default App
+        {/* Admin Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminDashboard />}>
+          <Route index element={<AdminHome />} />
+          {/* <Route path='category' element={<Category/>}></Route> */}
+          <Route path='category' element={<Category/>}></Route>
+           <Route path='product' element={<Products/>}></Route>
+        </Route>  
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
