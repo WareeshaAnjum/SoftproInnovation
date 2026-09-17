@@ -1,0 +1,379 @@
+/* ==========================================================================
+   Client/src/pages/Products/ProductDetail.css
+   Unified Orange & Black Color Palette with Theme Variable Support
+   ========================================================================== */
+
+.spi-detail-page {
+  background-color: var(--bg-body);
+  min-height: calc(100vh - 60px);
+  padding-bottom: 70px;
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Breadcrumbs */
+.spi-detail-breadcrumb-nav {
+  padding-top: 24px;
+  margin-bottom: 24px;
+}
+
+.spi-detail-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.spi-detail-breadcrumb a {
+  color: var(--spi-orange);
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+
+.spi-detail-breadcrumb a:hover {
+  color: var(--spi-orange-hover);
+}
+
+.spi-detail-breadcrumb-sep {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.spi-detail-breadcrumb-current {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 2-Column Detail Grid */
+.spi-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .spi-detail-grid {
+    grid-template-columns: 1fr 1.25fr;
+  }
+}
+
+/* Left Column: Media Presentation */
+.spi-detail-media-card {
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.spi-detail-badges-top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+.spi-detail-badge-featured {
+  background-color: var(--badge-featured-bg);
+  color: var(--badge-featured-text);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3.5px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.spi-detail-badge-discount {
+  background-color: var(--badge-discount-bg);
+  color: var(--badge-discount-text);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+/* Image Container */
+.spi-detail-image-box {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.spi-detail-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.spi-detail-img:hover {
+  transform: scale(1.05);
+}
+
+/* Bottom Feature Tags */
+.spi-detail-feature-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spi-detail-tag-pill {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Right Column: Info */
+.spi-detail-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.spi-detail-sku {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--spi-orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.spi-detail-title {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.spi-detail-brand {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 12px 0;
+  font-weight: 500;
+}
+
+.spi-detail-brand strong {
+  color: var(--text-primary);
+}
+
+.spi-detail-divider {
+  width: 44px;
+  height: 3px;
+  background-color: var(--spi-orange);
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+/* Price Section */
+.spi-detail-price-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.spi-detail-current-price {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--spi-orange);
+}
+
+.spi-detail-orig-price {
+  font-size: 20px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.spi-detail-save-pill {
+  background-color: var(--spi-orange-light);
+  color: var(--spi-orange);
+  border: 1px solid var(--spi-orange-border);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Stock */
+.spi-detail-stock {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #16a34a;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Card Sections (Description, Specs, Dimensions) */
+.spi-detail-card-box {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  box-shadow: var(--card-shadow);
+}
+
+.spi-detail-box-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.spi-detail-box-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Dimensions Grid */
+.spi-detail-dimensions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.spi-detail-dimension-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+}
+
+.spi-detail-dim-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.spi-detail-dim-val {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Refund Policy Banner */
+.spi-detail-refund-banner {
+  background-color: var(--spi-orange-light);
+  border: 1px solid var(--spi-orange-border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.spi-detail-refund-banner strong {
+  color: var(--spi-orange);
+}
+
+/* Cart Action Row */
+.spi-detail-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.spi-detail-qty-picker {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--bg-surface);
+  overflow: hidden;
+}
+
+.spi-detail-qty-btn {
+  border: none;
+  background-color: var(--bg-surface-secondary);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.spi-detail-qty-btn:hover {
+  background-color: var(--border-color);
+}
+
+.spi-detail-qty-num {
+  min-width: 44px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.spi-detail-add-cart-btn {
+  flex: 1;
+  min-width: 180px;
+  background-color: var(--spi-orange);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.spi-detail-add-cart-btn:hover {
+  background-color: var(--spi-orange-hover);
+  transform: translateY(-1px);
+}

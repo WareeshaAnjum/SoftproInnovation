@@ -4,20 +4,43 @@ import {
   Boxes, MessageSquare, LogOut, Moon, ChevronRight,
   ChevronLeft, Plus, Wrench, ClipboardList, ShieldCheck, MessageCircle
 } from 'lucide-react';
+import Header from '../../components/Header';
 import './AdminDashboard.css';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const [activeNav, setActiveNav] = useState('Overview');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [admin, setAdmin] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setAdmin(JSON.parse(storedUser));
+      try {
+        setAdmin(JSON.parse(storedUser));
+      } catch (e) {
+        setAdmin(null);
+      }
+    } else {
+      const name = localStorage.getItem('name');
+      const email = localStorage.getItem('email');
+      if (name) {
+        setAdmin({ name, email: email || 'admin@softpro.com' });
+      }
     }
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    localStorage.removeItem('name');
+    localStorage.removeItem('email');
+    localStorage.removeItem('role');
+    localStorage.removeItem('token');
+    localStorage.removeItem('adminId');
+    navigate('/admin/login');
+  };
 
   const initials = admin?.name
     ? admin.name
@@ -26,7 +49,7 @@ const AdminDashboard = () => {
         .slice(0, 2)
         .join('')
         .toUpperCase()
-    : 'AD';
+    : 'WA';
 
   const navItems = [
     { label: 'Overview', icon: <LayoutGrid size={18} /> ,link:'/admin'},
@@ -38,16 +61,9 @@ const AdminDashboard = () => {
     { label: 'Complaints', icon: <MessageSquare size={18} />,link:'/admin/complaints' },
   ];
 
-  const stats = [
-    { label: 'Total Products', value: 0, icon: '📦', bg: 'stat-orange' },
-    { label: 'Categories', value: 0, icon: '🏷️', bg: 'stat-blue' },
-    { label: 'Total Orders', value: 0, icon: '🛒', bg: 'stat-green' },
-    { label: 'Total Users', value: 0, icon: '👥', bg: 'stat-purple' },
-  ];
-
   return (
     <div className="admin-layout">
-
+      <Header />
       <div className="admin-body">
         {/* Sidebar */}
         <aside className={`admin-sidebar ${sidebarOpen ? '' : 'collapsed'}`}>
@@ -75,7 +91,7 @@ const AdminDashboard = () => {
   ))}
 </nav>
 
-          <button className="logout-link">
+          <button className="logout-link" onClick={handleLogout}>
             <LogOut size={18} />
             <span>Logout</span>
           </button>

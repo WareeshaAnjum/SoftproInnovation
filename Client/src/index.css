@@ -1,248 +1,782 @@
-.text-orangered {
-  color: #171E96;
-}
-.btn-orangered {
-  background-color: #171E96 !important;
-}
-.btn-orangered a {
-  color: white !important;
+/* ==========================================================================
+   Softpro Innovation - Unified Orange & Black Design System
+   Global Light & Dark Theme Tokens & Styles
+   ========================================================================== */
+
+:root {
+  /* Brand Accent Tokens (Orange) */
+  --spi-orange: #ea580c;
+  --spi-orange-hover: #c2410c;
+  --spi-orange-light: #fff7ed;
+  --spi-orange-border: #fed7aa;
+  --spi-orange-glow: rgba(234, 88, 12, 0.25);
+
+  /* Light Theme Color Tokens */
+  --bg-body: #faf8f5;
+  --bg-surface: #ffffff;
+  --bg-surface-secondary: #f4f1ea;
+  --bg-surface-tertiary: #ede8de;
+  --bg-input: #ffffff;
+  --bg-header: #ffffff;
+
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --text-inverse: #ffffff;
+
+  --border-color: #e4dfd7;
+  --border-subtle: #eee9df;
+  --border-focus: #ea580c;
+
+  --card-bg: #ffffff;
+  --card-border: #e7e2d9;
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 10px 25px rgba(234, 88, 12, 0.1);
+
+  --footer-bg: #09090b;
+  --footer-text: #a1a1aa;
+  --footer-border: #27272a;
+
+  --badge-featured-bg: #ea580c;
+  --badge-featured-text: #ffffff;
+  --badge-discount-bg: #16a34a;
+  --badge-discount-text: #ffffff;
 }
 
-.btn-outline-orangered {
-  border: 1px solid black !important;
-  color: black !important;
+[data-theme="dark"],
+body.dark-mode {
+  /* Brand Accent Tokens (Vibrant Orange in Dark Mode) */
+  --spi-orange: #f97316;
+  --spi-orange-hover: #fb923c;
+  --spi-orange-light: rgba(249, 115, 22, 0.15);
+  --spi-orange-border: rgba(249, 115, 22, 0.35);
+  --spi-orange-glow: rgba(249, 115, 22, 0.35);
+
+  /* Dark Theme Color Tokens (Deep Black / Carbon / Charcoal) */
+  --bg-body: #09090b;
+  --bg-surface: #121215;
+  --bg-surface-secondary: #18181b;
+  --bg-surface-tertiary: #202024;
+  --bg-input: #18181b;
+  --bg-header: #0d0d10;
+
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-inverse: #09090b;
+
+  --border-color: #27272a;
+  --border-subtle: #1f1f23;
+  --border-focus: #f97316;
+
+  --card-bg: #141418;
+  --card-border: #27272a;
+  --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 10px 25px rgba(249, 115, 22, 0.15);
+
+  --footer-bg: #050507;
+  --footer-text: #a1a1aa;
+  --footer-border: #1f1f23;
+
+  --badge-featured-bg: #f97316;
+  --badge-featured-text: #09090b;
+  --badge-discount-bg: #15803d;
+  --badge-discount-text: #ffffff;
 }
 
-.btn-outline-orangered a {
-  color: black !important;
+/* Base Body Styles */
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-.btn-outline-orangered:hover {
-  transition: 0.5s ease;
-  transform: scale(1.03) translateY(-1px);
-  color: #171E96 !important;
-  border-color: #171E96 !important;
-}
-.btn-outline-orangered:hover .icondrk {
-  transition: 0.5s ease;
-  transform: scale(1.3);
+/* ==========================================================================
+   Header & Navbar
+   ========================================================================== */
+.nabar {
+  min-height: 56px;
+  background-color: var(--bg-header) !important;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
-.btn-outline-orangered:hover a {
-  color: #171E96 !important;
+.nav-bg {
+  background-color: var(--bg-header) !important;
 }
+
 .nav-item {
   position: relative;
 }
-.nav-item:hover .nav-link::after {
+
+.nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  font-size: 14.5px;
+  transition: color 0.15s ease;
+  padding: 8px 14px !important;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.active-products-link {
+  color: var(--spi-orange) !important;
+}
+
+.nav-item:hover .nav-link::after,
+.nav-link.active::after,
+.active-products-link::after {
   position: absolute;
   content: "";
-  width: 44px;
+  width: 24px;
   height: 2px;
-  background-color: ##171E96;
-  bottom: 4px;
-  left: 9px;
+  background-color: var(--spi-orange);
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.logos {
+  transition: transform 0.4s ease;
 }
 
 .logos:hover {
-  box-shadow: 4px 3px 12px rgba(224, 92, 42, 0.35);
-  transition: 0.5s ease;
-  transform: rotate(45deg);
+  transform: rotate(15deg) scale(1.08);
 }
 
-/* .nav-link:hover {
-  color: #e05c2a !important;
-  transition: 1s ease;
-  border-bottom: 1px solid #e05c2a !important;
-  width: 30px;
-  height: 2px;
-  transition: 0.5s ease;
-} */
-#navbarSupportedContent {
-  display: flex !important;
-  justify-content: space-evenly !important;
+.btn-outline-orangered {
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  background-color: var(--bg-surface) !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
 }
 
-/*  */
-.nabar {
-  height: 50px;
+.btn-outline-orangered:hover {
+  border-color: var(--spi-orange) !important;
+  color: var(--spi-orange) !important;
+  background-color: var(--spi-orange-light) !important;
 }
+
+.btn-orangered {
+  background-color: var(--spi-orange) !important;
+  border-color: var(--spi-orange) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.btn-orangered:hover {
+  background-color: var(--spi-orange-hover) !important;
+  transform: translateY(-1px);
+}
+
+.text-orangered,
 .in {
-  color: #171E96;
+  color: var(--spi-orange) !important;
 }
-.nav-bg {
-  background-color: #f6f4ef;
-}
+
+/* ==========================================================================
+   Home Page Sections
+   ========================================================================== */
+
+/* Slider Section */
 .container2 {
   width: 100%;
   position: relative;
+  background-color: var(--bg-body);
 }
+
+.splide__slide {
+  position: relative;
+}
+
 .splide__slide img {
   width: 100%;
-  height: 500px;
+  height: 480px;
   object-fit: cover;
+  filter: brightness(0.85);
 }
+
 .splide__slide::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to left top,
-    rgba(238, 92, 39, 0.6) 3%,
-    rgba(0, 0, 0, 0)
+    to right,
+    rgba(9, 9, 11, 0.85) 0%,
+    rgba(9, 9, 11, 0.4) 50%,
+    rgba(234, 88, 12, 0.2) 100%
   );
   z-index: 1;
 }
+
 .textslider {
   position: absolute;
-  top: 100px;
-  left: 10px;
-  color: white;
-  margin-left: 60px;
+  top: 90px;
+  left: 20px;
+  color: #ffffff;
+  margin-left: 40px;
+  z-index: 2;
+  max-width: 650px;
 }
+
 .popular-badge {
   display: inline-block;
-  padding: 6px 16px;
-  border: 1px solid #171E96;
+  padding: 4px 14px;
+  border: 1px solid var(--spi-orange);
   border-radius: 20px;
-  background-color: #29263d;
-  color: lightcoral;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  background-color: rgba(234, 88, 12, 0.2);
+  color: #ffedd5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  margin-bottom: 12px;
 }
+
 .tp {
-  color: #9ea1aa;
+  color: #d4d4d8;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 14px 0 22px 0;
 }
 
 .abc {
-  background-color: #171E96;
+  background-color: var(--spi-orange);
   border: none;
-  padding: 12px 25px;
-  border-radius: 15px;
+  padding: 10px 22px;
+  border-radius: 8px;
   cursor: pointer;
-  margin-right: 15px;
+  margin-right: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.abc:hover {
+  background-color: var(--spi-orange-hover);
+  transform: translateY(-2px);
 }
 
 .abc a {
-  color: white !important;
+  color: #ffffff !important;
   text-decoration: none !important;
 }
 
-.abc a:hover {
-  color: white !important;
-  text-decoration: none !important;
-}
+/* Hero Stats Banner */
 .hero {
-  background-color: #171E96;
-  color: white;
+  background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+  color: #ffffff;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 32px 20px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
-/* box */
+
 .box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
+
 .box1 {
   position: relative;
 }
-.box1::after {
-  content: "";
-  position: absolute;
-  width: 70px;
-  height: 1px;
-  background-color: #fff;
-  top: 30px;
-  left: 150px;
-  z-index: 5;
-  transform: rotate(90deg);
-  transform-origin: center;
-}
+
 .box h1 {
   margin: 0;
   padding: 0;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--spi-orange);
+}
+
+.box p {
+  margin: 4px 0 0 0;
+  font-size: 13.5px;
+  color: #a1a1aa;
+}
+
+/* Browse Categories Section */
+.browse-section {
+  background-color: var(--bg-body);
+  transition: background-color 0.25s ease;
+}
+
+.browse-subtitle {
+  color: var(--spi-orange);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.browse-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.browse-title span {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--spi-orange);
+}
+
+.browse-underline {
+  width: 40px;
+  height: 3px;
+  background-color: var(--spi-orange);
+  border-radius: 2px;
+}
+
+.browse-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 450px;
+}
+
+.browse-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 24px 16px;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  box-shadow: var(--card-shadow);
+}
+
+.browse-card:hover {
+  border-color: var(--spi-orange);
+  background-color: var(--bg-surface-secondary);
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.browse-card:hover .browse-card-title {
+  color: var(--spi-orange);
+}
+
+.browse-icon-box {
+  width: 76px;
+  height: 76px;
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.browse-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.browse-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+/* Heroes (Featured Products on Home) */
+.heroes-section {
+  background-color: var(--bg-surface-secondary);
+  transition: background-color 0.25s ease;
+}
+
+.heroes-subtitle {
+  color: var(--spi-orange);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.heroes-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.heroes-title span {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--spi-orange);
+  font-weight: 400;
+}
+
+.heroes-line {
+  width: 42px;
+  height: 3px;
+  background-color: var(--spi-orange);
+}
+
+.heroes-desc {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  max-width: 480px;
+}
+
+.all-products-btn {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.all-products-btn:hover {
+  background-color: var(--spi-orange);
+  color: #ffffff;
+  border-color: var(--spi-orange);
+}
+
+.heroes-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.heroes-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--spi-orange);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.heroes-img-box {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.heroes-img-box img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.heroes-category {
+  color: var(--spi-orange);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.heroes-product-title {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  margin-bottom: 0;
+}
+
+.heroes-price {
+  color: var(--spi-orange);
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: Georgia, serif;
   font-style: italic;
 }
-.box p {
-  margin: 0;
-  padding: 0;
+
+.heroes-cart-btn {
+  background-color: var(--spi-orange);
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
-.browsehead {
+
+.heroes-cart-btn:hover {
+  background-color: var(--spi-orange-hover);
+}
+
+/* Loved / Reviews Section */
+.loved-section {
+  background-color: var(--bg-body);
+  transition: background-color 0.25s ease;
+}
+
+.loved-subtitle {
+  color: var(--spi-orange);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.loved-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.loved-title span {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--spi-orange);
+  font-weight: 400;
+}
+
+.loved-line {
+  width: 42px;
+  height: 3px;
+  background-color: var(--spi-orange);
+}
+
+.loved-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.loved-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.quote-icon {
+  color: var(--spi-orange);
+  font-size: 2.5rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stars-rating {
+  color: #f59e0b;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.review-text {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.avatar-circle {
+  width: 44px;
+  height: 44px;
+  background-color: var(--spi-orange);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.user-name {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.user-role {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* Ahead Newsletter Banner */
+.ahead-section {
+  background-color: var(--bg-surface-secondary);
+  transition: background-color 0.25s ease;
+}
+
+.ahead-banner {
+  background: linear-gradient(135deg, #ea580c 0%, #9a3412 100%);
+  border-radius: 20px;
+  padding: 48px 40px;
+  box-shadow: 0 10px 30px rgba(234, 88, 12, 0.25);
+}
+
+.ahead-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ahead-title span {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.ahead-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.88) !important;
+  line-height: 1.5;
+}
+
+.ahead-input {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 10px 18px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  max-width: 320px;
+}
+
+.ahead-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ahead-input:focus {
+  background-color: rgba(255, 255, 255, 0.28);
+  border-color: #ffffff;
+}
+
+.ahead-btn {
   background-color: #ffffff;
+  color: #c2410c;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* footer Section  */
+.ahead-btn:hover {
+  background-color: #fdfbf7;
+  transform: translateY(-1px);
+}
 
-/* Background & Base Container */
+.circle-pattern {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Footer Section
+   ========================================================================== */
 .footer-section {
-  background-color: #121324 !important; /* Rich Dark Background */
-  color: #b3b9c9 !important;
+  background-color: var(--footer-bg) !important;
+  color: var(--footer-text) !important;
+  border-top: 1px solid var(--footer-border);
 }
 
-/* Brand Accent Color (Orange/Coral) */
 .brand-accent,
 .contact-icon {
-  color: #171E96 !important;
+  color: var(--spi-orange) !important;
 }
 
-/* Brand Description Text */
 .footer-description {
-  color: #a3a8b8 !important;
+  color: var(--footer-text) !important;
   font-size: 0.88rem;
   line-height: 1.6;
 }
 
-/* Column Headings (QUICK LINKS, CATEGORIES, etc.) */
 .footer-column-heading {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.8px;
   font-size: 0.85rem;
-  color: #ffffff !important; /* Pure white so it stands out */
-}
-
-/* Link Lists Styling */
-.footer-links li {
-  margin-bottom: 0.55rem;
+  color: #ffffff !important;
 }
 
 .footer-links a {
-  color: #a3a8b8 !important;
+  color: var(--footer-text) !important;
   text-decoration: underline !important;
   font-size: 0.9rem;
   transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: #ffffff !important; /* Brightens on hover */
+  color: var(--spi-orange) !important;
 }
 
-/* Contact Info Section */
-.contact-text {
-  color: #a3a8b8 !important;
-  font-size: 0.88rem;
-  line-height: 1.5;
-}
-
+.contact-text,
 .contact-link {
-  color: #a3a8b8 !important;
-  text-decoration: underline !important;
+  color: var(--footer-text) !important;
   font-size: 0.88rem;
-  transition: color 0.2s ease;
 }
 
 .contact-link:hover {
-  color: #ffffff !important;
+  color: var(--spi-orange) !important;
 }
 
-/* Social Media Round/Square Icons */
 .social-icon-btn {
   display: inline-flex;
   align-items: center;
@@ -258,515 +792,65 @@
 }
 
 .social-icon-btn:hover {
-  background-color: #171E96;
+  background-color: var(--spi-orange);
   color: #ffffff !important;
 }
 
-/* Divider Line */
 .footer-divider {
-  border-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: var(--footer-border) !important;
   opacity: 1 !important;
 }
 
-/* Bottom Bar Copyright Text */
 .footer-bottom-text {
-  color: #838899 !important;
+  color: var(--text-muted) !important;
   font-size: 0.82rem;
 }
 
-/* // Heroes Section */
-
-/* Section Base Background (Creamish Color) */
-.heroes-section {
-  background-color: #f5f2eb !important;
-}
-
-/* Subtitle (HANDPICKED FOR YOU) */
-.heroes-subtitle {
-  color: #171E96;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  display: block;
-}
-
-/* Main Heading (Featured Products) */
-.heroes-title {
-  font-size: 2.3rem;
-  font-weight: 800;
-  color: #1a1e29;
-  margin-top: 4px;
-  margin-bottom: 8px;
-}
-
-/* Georgia Serif Style for "Products" */
-.heroes-title span {
-  font-family: Georgia, serif;
-  font-style: italic;
-  color: #171E96;
-  font-weight: 400;
-}
-
-/* Red/Orange Accent Line Below Heading */
-.heroes-line {
-  width: 42px;
-  height: 3px;
-  background-color: #171E96;
-}
-
-/* Description Text */
-.heroes-desc {
-  color: #5a606d;
-  font-size: 0.92rem;
-  max-width: 480px;
-}
-
-/* "All Products ->" Top Right Button */
-.all-products-btn {
-  background-color: #e2dfd7;
-  color: #333333;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  border: 1px solid #d0cdbc;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.all-products-btn:hover {
-  background-color: #d5d1c5;
-}
-
-/* Outer Soft Blue Card */
-.heroes-card {
-  background-color: #eef3fc;
-  border-radius: 16px;
-  padding: 16px;
-  height: 100%;
+/* ==========================================================================
+   Auth / Login Common Form Styling
+   ========================================================================== */
+#logpg {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.heroes-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-}
-
-/* White Box inside Card for Image */
-.heroes-img-box {
-  background-color: #ffffff;
-  border-radius: 12px;
-  height: 160px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 16px;
-  margin-bottom: 16px;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  background-color: var(--bg-body);
 }
 
-.heroes-img-box img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
+#login {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: var(--card-shadow);
 }
 
-/* Category Blue Tag */
-.heroes-category {
-  color: #4361ee;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 4px;
-}
-
-/* Product Name */
-.heroes-product-title {
-  color: #1a1e29;
-  font-size: 0.95rem;
-  font-weight: 700;
-  font-family: Georgia, serif;
-  margin-bottom: 0;
-}
-
-/* Price Tag */
-.heroes-price {
-  color: #171E96;
-  font-size: 1.1rem;
-  font-weight: 700;
-  font-family: Georgia, serif;
-  font-style: italic;
-}
-
-/* Orange + Cart Button */
-.heroes-cart-btn {
-  background-color: #171E96;
-  color: #ffffff;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.heroes-cart-btn:hover {
-  background-color: #171E96;
-}
-
-/* Loved  Section */
-/* Main Section Background */
-.loved-section {
-  background-color: #ffffff;
-}
-
-/* Subtitle (WHAT MAKERS SAY) */
-.loved-subtitle {
-  color: #171E96;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 6px;
-}
-
-/* Heading Title (Loved by the Community) */
-.loved-title {
-  font-size: 2.3rem;
-  font-weight: 800;
-  color: #1a1e29;
-  margin-bottom: 12px;
-}
-
-/* Georgia Serif Italic for "Community" */
-.loved-title span {
-  font-family: Georgia, serif;
-  font-style: italic;
-  color: #171E96;
-  font-weight: 400;
-}
-
-/* Underline below Heading */
-.loved-line {
-  width: 42px;
-  height: 3px;
-  background-color: #171E96;
-}
-
-/* Card Styling */
-.loved-card {
-  background-color: #ffffff;
-  border: 1px solid #eee8e0;
-  border-radius: 16px;
-  padding: 28px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.loved-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
-}
-
-/* Top Quotation Mark Icon */
-.quote-icon {
-  color: #171E93;
-  font-size: 2.5rem;
-  font-family: Georgia, serif;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-/* Yellow/Orange Rating Stars */
-.stars-rating {
-  color: #171E95;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-
-/* Review Text Body */
-.review-text {
-  color: #5a606d;
-  font-size: 0.92rem;
-  font-style: italic;
-  line-height: 1.6;
+.log-head {
   margin-bottom: 24px;
 }
 
-/* Orange Avatar Circles */
-.avatar-circle {
-  width: 44px;
-  height: 44px;
-  background-color: #171E96;
-  color: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.95rem;
-  flex-shrink: 0;
+.log-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
 }
 
-/* User Name & Role */
-.user-name {
-  color: #1a1e29;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.user-role {
-  color: #8b92a0;
-  font-size: 0.82rem;
-}
-
-/* AHEAD sECTION */
-/* Outer Section Background (Creamish Beige Tone) */
-.ahead-section {
-  background-color: #f5f2eb !important;
-}
-
-/* Orange Banner Card */
-.ahead-banner {
-  background-color: #171E96; /* Main Coral/Orange Color */
-  border-radius: 20px;
-  padding: 48px 40px;
-}
-
-/* Banner Title */
-.ahead-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-/* Serif Font for "Ahead of the Curve" */
-.ahead-title span {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
-/* Subtitle Description */
-.ahead-desc {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85) !important;
-  line-height: 1.5;
-}
-
-/* Translucent Input Box */
-.ahead-input {
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  padding: 10px 18px;
-  color: #ffffff;
-  font-size: 0.9rem;
-  outline: none;
+.signbtn {
   width: 100%;
-  max-width: 320px;
-  transition: all 0.2s ease;
+  padding: 12px !important;
+  background-color: var(--spi-orange) !important;
+  border-color: var(--spi-orange) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  margin: 16px 0 0 0 !important;
+  transition: background-color 0.2s ease !important;
 }
 
-/* Input Placeholder Styling */
-.ahead-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+.signbtn:hover {
+  background-color: var(--spi-orange-hover) !important;
 }
-
-.ahead-input:focus {
-  background-color: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-/* White Subscribe Button */
-.ahead-btn {
-  background-color: #ffffff;
-  color: #171E96;
-  font-weight: 700;
-  font-size: 0.88rem;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 24px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.ahead-btn:hover {
-  background-color: #fdfbf7;
-  transform: translateY(-1px);
-}
-
-/* Right Side Abstract Circle Pattern */
-.circle-pattern {
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-}
-
-/* Browse CSS */
-/* Main Section Styling */
-.browse-section {
-  background-color: #ffffff;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-}
-
-/* Subtitle Header */
-.browse-subtitle {
-  color: #171E96;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  display: block;
-}
-
-/* Heading Titles */
-.browse-title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  margin-top: 4px;
-  margin-bottom: 8px;
-}
-
-/* Italicized Serif Text for "Categories" */
-.browse-title span {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  color: #171E96;
-}
-
-/* Underline below Heading */
-.browse-underline {
-  width: 40px;
-  height: 3px;
-  background-color: #171E96;
-  border-radius: 2px;
-}
-
-/* Description Text */
-.browse-desc {
-  color: #6c757d;
-  font-size: 0.95rem;
-  max-width: 450px;
-}
-
-/* Outer Category Card (Light Ice-Blue Background) */
-.browse-card {
-  background-color: #f1f5fe;
-  border: 1px solid #e2e8f8;
-  border-radius: 14px;
-  padding: 28px 16px;
-  transition: all 0.25s ease-in-out;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-/* Hover Effect (Simulates active Orange outline like in image) */
-.browse-card:hover {
-  border-color: #171E96;
-  background-color: #f6f8ff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(229, 91, 60, 0.08);
-}
-
-.browse-card:hover .browse-card-title {
-  color: #171E96;
-}
-
-/* Inner Icon Holder Box */
-.browse-icon-box {
-  width: 80px;
-  height: 80px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-}
-
-/* Image inside Box */
-.browse-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* Category Title Styling */
-.browse-card-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #1a2b4c;
-  margin: 0;
-  transition: color 0.2s ease;
-}
-
-#logpg{
-  display: flex;
-  justify-content: center;
-  margin-top: 70px;
-
-}
-#login{
-  height: 460px;
-  width: 440px;
-  border: 1px solid black;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-
-}
-.log-head{
-  padding-top:15px ;
-  padding-left: 20px;
-}
- .log-text{
-  font-size: 12px;
-  color:#5a606d;
- }
-
- .signbtn{
-  margin: 30px;
-  padding: 10px 105px !important;
-  color: white !important;
- }
-
- .name{
-  width: 10px !important;
-  display: flex !important;
- }

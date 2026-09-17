@@ -1,37 +1,45 @@
+/* ==========================================================================
+   Client/src/pages/Register/Register.css
+   Unified Orange & Black Theme for Register & Sign Up
+   ========================================================================== */
+
 .register-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0efe9;
-  padding: 20px;
+  background-color: var(--bg-body);
+  padding: 24px;
+  transition: background-color 0.25s ease;
 }
 
 .register-card {
-  background: #ffffff;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 24px;
   padding: 40px;
   max-width: 460px;
   width: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .register-title {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 32px;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--text-primary);
   margin: 0 0 8px 0;
 }
 
 .italic-accent {
   font-style: italic;
-  color: #171E96;
+  color: var(--spi-orange);
   font-weight: 500;
 }
 
 .register-subtitle {
-  color: #6b7280;
+  color: var(--text-secondary);
   font-size: 14px;
   margin: 0 0 28px 0;
 }
@@ -50,7 +58,7 @@
   display: block;
   font-size: 13px;
   font-weight: 600;
-  color: #1a1a2e;
+  color: var(--text-primary);
   margin-bottom: 8px;
 }
 
@@ -63,28 +71,29 @@
 .input-wrapper input {
   width: 100%;
   padding: 12px 40px 12px 14px;
-  border: 1px solid #e5e3db;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
-  background-color: #f4f3ee;
+  background-color: var(--bg-input);
   font-size: 14px;
-  color: #1a1a2e;
+  color: var(--text-primary);
   box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
 .input-wrapper input::placeholder {
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .input-wrapper input:focus {
-  outline: none;
-  border-color: #171E96;
-  background-color: #ffffff;
+  border-color: var(--spi-orange);
+  box-shadow: 0 0 0 3px var(--spi-orange-glow);
 }
 
 .input-icon {
   position: absolute;
   right: 14px;
-  color: #9ca3af;
+  color: var(--text-muted);
   pointer-events: none;
 }
 
@@ -99,40 +108,42 @@
   gap: 8px;
   margin-bottom: 24px;
   font-size: 14px;
-  color: #1a1a2e;
+  color: var(--text-primary);
 }
 
 .form-checkbox input[type='checkbox'] {
   width: 16px;
   height: 16px;
   cursor: pointer;
+  accent-color: var(--spi-orange);
 }
 
 .form-checkbox a {
-  color: #171E96;
+  color: var(--spi-orange);
   text-decoration: underline;
 }
 
 .register-btn {
   width: 100%;
   padding: 14px;
-  background-color: #171E96;
+  background-color: var(--spi-orange);
   color: #ffffff;
   border: none;
   border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease, transform 0.15s ease;
 }
 
 .register-btn:hover {
-  background-color: #171E96;
+  background-color: var(--spi-orange-hover);
+  transform: translateY(-1px);
 }
 
 .divider {
   text-align: center;
-  border-top: 1px solid #e5e3db;
+  border-top: 1px solid var(--border-color);
   margin: 24px 0 16px;
   position: relative;
 }
@@ -140,21 +151,25 @@
 .divider span {
   position: relative;
   top: -10px;
-  background: #fff;
+  background: var(--card-bg);
   padding: 0 12px;
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--text-muted);
 }
 
 .signin-link {
   text-align: center;
   font-size: 14px;
-  color: #1a1a2e;
+  color: var(--text-primary);
   margin: 0;
 }
 
 .signin-link a {
-  color: #171E96;
+  color: var(--spi-orange);
   font-weight: 600;
   text-decoration: none;
+}
+
+.signin-link a:hover {
+  text-decoration: underline;
 }

@@ -19,36 +19,21 @@ const upload = multer({
     storage: storage
 });
 
-// 3. Register route
+// Create Category (supports both POST / and POST /register)
 routes.post(
-    "/register",
+    ["/", "/register"],
     upload.single("photo"),
     async (req, res) => {
-
-        console.log("hello");
-
         try {
-            console.log("Body:", req.body);
-            console.log("File:", req.file);
-
             const {
                 category,
                 description,
                 status
             } = req.body;
 
-            // Check category already exists
-            // const a = await Category.findOne({ category });
-
-            // if (a) {
-            //     return res.json({
-            //         msg: "Category Already Exist"
-            //     });
-            // }
-
             // Check image
             if (!req.file) {
-                return res.json({
+                return res.status(400).json({
                     msg: "Please upload an image"
                 });
             }
@@ -57,31 +42,31 @@ routes.post(
             const data = new Category({
                 category: category,
                 description: description,
-                status: status,
+                status: status || "Active",
                 photo: req.file.filename
             });
 
             await data.save();
 
             return res.json({
-                msg: "Category Registered"
+                msg: "Category Registered",
+                data: data
             });
 
         } catch (er) {
-
             console.log(er);
-
             return res.status(500).json({
-                msg: "Server error"
+                msg: "Server error",
+                error: er.message
             });
         }
     }
 );
 
-routes.get("/show", async (req, res) => {
+// Get all categories (supports both GET / and GET /show)
+routes.get(["/", "/show"], async (req, res) => {
     try {
-
-        const data = await Category.find({});
+        const data = await Category.find({}).sort({ createdAt: -1 });
 
         res.json({
             msg: "Category data",
@@ -89,25 +74,56 @@ routes.get("/show", async (req, res) => {
         });
 
     } catch (error) {
-
         console.log(error);
-
         res.status(500).json({
-            msg: "data does not exist"
+            msg: "Failed to fetch categories",
+            error: error.message
         });
     }
 });
 
-routes.patch("/:id" , async (req, res)=>{
-    const{category, description, status}= req.body
-    const data= await Category.findByIdAndUpdate(req.params.id,{
-       category:category, 
-       description:description, 
-       status: status
-    });
-    res.json("Category data updated")
-})
+// Update category (supports PATCH /:id and PUT /:id with optional photo)
+const handleUpdateCategory = async (req, res) => {
+    try {
+        const { category, description, status } = req.body;
+        const updateData = {};
 
+        if (category !== undefined) updateData.category = category;
+        if (description !== undefined) updateData.description = description;
+        if (status !== undefined) updateData.status = status;
+        if (req.file) {
+            updateData.photo = req.file.filename;
+        }
+
+        const data = await Category.findByIdAndUpdate(
+            req.params.id,
+            updateData,
+            { new: true }
+        );
+
+        if (!data) {
+            return res.status(404).json({
+                msg: "Category not found"
+            });
+        }
+
+        res.json({
+            msg: "Category data updated",
+            data: data
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            msg: "Server error",
+            error: error.message
+        });
+    }
+};
+
+routes.patch("/:id", upload.single("photo"), handleUpdateCategory);
+routes.put("/:id", upload.single("photo"), handleUpdateCategory);
+
+// Delete category
 routes.delete("/:id", async (req, res) => {
     try {
         const { id } = req.params;
@@ -129,7 +145,8 @@ routes.delete("/:id", async (req, res) => {
         console.log(error);
 
         res.status(500).json({
-            msg: "Server error"
+            msg: "Server error",
+            error: error.message
         });
     }
 });
