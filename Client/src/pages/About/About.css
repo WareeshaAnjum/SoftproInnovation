@@ -1,0 +1,293 @@
+/* ==========================================================================
+   About Page Styles - Softpro Innovation
+   Matches the design mockup exactly with full Light & Dark mode support
+   ========================================================================== */
+
+.about-page-wrapper {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.about-hero-section {
+  position: relative;
+  background: linear-gradient(115deg, #090e21 0%, #151833 45%, #2a1b2e 70%, #52231c 90%, #7c2d12 100%);
+  color: #ffffff;
+  overflow: hidden;
+  padding: 40px 0 60px;
+}
+
+.about-hero-bg-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.about-hero-bg-shapes .shape-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(234, 88, 12, 0.18);
+}
+
+.about-hero-bg-shapes .shape-1 {
+  width: 550px;
+  height: 550px;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.25) 0%, rgba(234, 88, 12, 0) 70%);
+}
+
+.about-hero-bg-shapes .shape-2 {
+  width: 380px;
+  height: 380px;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: rgba(234, 88, 12, 0.28);
+}
+
+.about-subtitle-tag {
+  font-size: 0.82rem;
+  letter-spacing: 2.2px;
+  color: #ea580c;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.about-hero-title {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.font-italic-accent {
+  font-style: italic;
+  color: #ea580c;
+  font-family: inherit;
+}
+
+.about-hero-description {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 580px;
+}
+
+.btn-about-primary {
+  background-color: #ea580c;
+  border: 1px solid #ea580c;
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.btn-about-primary:hover {
+  background-color: #c2410c;
+  border-color: #c2410c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+}
+
+.btn-about-secondary {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  backdrop-filter: blur(4px);
+}
+
+.btn-about-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Mission & Stats Section
+   -------------------------------------------------------------------------- */
+.about-mission-section {
+  background-color: var(--bg-body);
+}
+
+.about-section-heading {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.about-orange-divider {
+  width: 50px;
+  height: 3px;
+  background-color: #ea580c;
+  border-radius: 2px;
+}
+
+.about-text-lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.about-text-body {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.about-stat-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px 24px;
+  height: 100%;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.about-stat-number {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #ea580c;
+  margin-bottom: 6px;
+}
+
+.about-stat-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Values Section
+   -------------------------------------------------------------------------- */
+.about-values-section {
+  background-color: var(--bg-surface-secondary);
+}
+
+.about-value-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 30px 24px;
+  height: 100%;
+  box-shadow: var(--card-shadow);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.about-value-card.highlight-card {
+  border: 1.5px solid #ea580c;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.12);
+}
+
+.about-value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.about-value-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.about-value-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.about-value-desc {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Timeline / Journey Section
+   -------------------------------------------------------------------------- */
+.about-journey-section {
+  background-color: var(--bg-body);
+}
+
+.about-timeline-container {
+  max-width: 780px;
+  padding: 10px 15px;
+}
+
+.about-timeline-row {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  min-height: 64px;
+}
+
+.timeline-year-col {
+  width: 90px;
+  flex-shrink: 0;
+  text-align: right;
+  padding-right: 24px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.timeline-year-col::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--border-color);
+}
+
+.timeline-year {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ea580c;
+  line-height: 1.6;
+}
+
+.timeline-content-col {
+  padding-left: 24px;
+  padding-bottom: 24px;
+  flex-grow: 1;
+}
+
+.timeline-milestone-text {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}

@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '@splidejs/react-splide/css';
 import Header from './components/Header';
 import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Products from './pages/Products/Products';
@@ -26,6 +28,9 @@ const App = () => {
       <Routes>
         {/* User Routes */}
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact-us" element={<Contact />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/product/:id" element={<ProductDetail />} />

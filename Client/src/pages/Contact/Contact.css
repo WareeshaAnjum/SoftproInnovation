@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Contact Us Page Styles - Softpro Innovation
+   Matches the UI mockups with Light & Dark theme support
+   ========================================================================== */
+
+.contact-page-wrapper {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.contact-hero-section {
+  position: relative;
+  background: linear-gradient(115deg, #090e21 0%, #151833 45%, #2a1b2e 70%, #52231c 90%, #7c2d12 100%);
+  color: #ffffff;
+  overflow: hidden;
+  padding: 36px 0 50px;
+}
+
+.contact-hero-bg-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.contact-hero-bg-shapes .shape-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(234, 88, 12, 0.18);
+}
+
+.contact-hero-bg-shapes .shape-1 {
+  width: 500px;
+  height: 500px;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.22) 0%, rgba(234, 88, 12, 0) 70%);
+}
+
+.contact-hero-bg-shapes .shape-2 {
+  width: 340px;
+  height: 340px;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-color: rgba(234, 88, 12, 0.25);
+}
+
+.contact-breadcrumb {
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.breadcrumb-link {
+  color: #ea580c;
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 4px;
+}
+
+.breadcrumb-current {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-hero-title {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.18;
+  color: #ffffff;
+}
+
+.contact-hero-description {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 680px;
+}
+
+/* --------------------------------------------------------------------------
+   Cards and Containers
+   -------------------------------------------------------------------------- */
+.contact-main-section {
+  background-color: var(--bg-body);
+}
+
+.contact-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.card-heading {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.card-subheading {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Contact Info Details
+   -------------------------------------------------------------------------- */
+.contact-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--spi-orange-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon {
+  color: #ea580c;
+  font-size: 1.15rem;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.info-text {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.info-text strong {
+  color: var(--text-primary);
+}
+
+.info-link {
+  color: #ea580c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-link:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Quick Help Section
+   -------------------------------------------------------------------------- */
+.quick-help-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-help-item {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.quick-help-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.quick-help-item:hover {
+  color: #ea580c;
+  transform: translateX(3px);
+}
+
+.quick-help-emoji {
+  font-size: 1.1rem;
+}
+
+.quick-help-arrow {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Form Fields & Inputs
+   -------------------------------------------------------------------------- */
+.contact-form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.contact-input {
+  background-color: var(--bg-surface-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-size: 0.95rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.contact-input::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+}
+
+.contact-input:focus {
+  background-color: var(--bg-surface) !important;
+  border-color: #ea580c !important;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.18) !important;
+  outline: none !important;
+}
+
+.btn-contact-submit {
+  background-color: #ea580c;
+  border: 1px solid #ea580c;
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn-contact-submit:hover {
+  background-color: #c2410c;
+  border-color: #c2410c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.35);
+}

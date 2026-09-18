@@ -20,16 +20,16 @@ const Header = () => {
           <div className="col-sm-12 p-0">
             <nav className="navbar navbar-expand-lg bg-body-white nav-bg nabar">
               <div className="container-fluid d-flex justify-center align-items-center">
-                <Link className="navbar-brand d-flex align-items-center" to="/">
+                <Link className="navbar-brand d-flex align-items-center gap-2 me-3 header-brand-link text-decoration-none" to="/">
                   <img
                     src={logo}
                     alt="SoftPro Innovation Logo"
-                    className="image-fluid logos"
-                    width="32px"
+                    className="image-fluid logos header-logo-img"
                   />
-                </Link>
-                <Link to="/" className="text-decoration-none text-dark pt-1 fw-bold fs-3 mb-0 me-3">
-                  Softpro<span style={{ color: "#c2410c" }}>Innovation</span>
+                  <span className="fw-bold fs-4 mb-0 header-brand-text">
+                    <span className="brand-title-prefix">Softpro</span>
+                    <span className="brand-title-suffix">Innovation</span>
+                  </span>
                 </Link>
                 <button
                   className="navbar-toggler"
