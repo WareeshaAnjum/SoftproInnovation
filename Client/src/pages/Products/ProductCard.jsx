@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { resolveProductImage } from '../../data/productsData';
 
 const ProductCard = ({ product, onView }) => {
   const navigate = useNavigate();
+  const [added, setAdded] = useState(false);
 
   const {
     name,
@@ -29,10 +30,9 @@ const ProductCard = ({ product, onView }) => {
     const percent = Math.round(((original_price - price) / original_price) * 100);
     discountTag = `${percent}% OFF`;
   }
-  if (!discountTag) discountTag = '10% OFF';
 
   // Badge text (FEATURED or POPULAR)
-  const badgeLabel = badge || (is_featured ? 'FEATURED' : 'POPULAR');
+  const badgeLabel = badge || (is_featured ? 'FEATURED' : null);
 
   // Image source
   const imageUrl = resolveProductImage(product);
@@ -46,28 +46,53 @@ const ProductCard = ({ product, onView }) => {
     navigate(`/products/${targetId}`);
   };
 
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    try {
+      const existing = JSON.parse(localStorage.getItem('cart') || '[]');
+      const productId = product.id || product._id;
+      const itemIndex = existing.findIndex((i) => i.id === productId);
+      if (itemIndex > -1) {
+        existing[itemIndex].quantity = (existing[itemIndex].quantity || 1) + 1;
+      } else {
+        existing.push({
+          id: productId,
+          name: name,
+          price: price,
+          image: imageUrl,
+          quantity: 1,
+        });
+      }
+      localStorage.setItem('cart', JSON.stringify(existing));
+      setAdded(true);
+      setTimeout(() => setAdded(false), 2000);
+    } catch (err) {
+      console.error('Add to cart error:', err);
+    }
+  };
+
   return (
     <div
       className="spi-product-card"
       onClick={handleCardClick}
       style={{ cursor: 'pointer' }}
     >
-      {/* Top Badge */}
-      <div className="spi-badge-container">
-        <span className="spi-card-badge">{badgeLabel}</span>
-      </div>
-
-      {/* Image Wrap */}
+      {/* Image Wrap & Separated Badges */}
       <div className="spi-image-box">
+        {badgeLabel && (
+          <span className="spi-card-badge">{badgeLabel}</span>
+        )}
+
+        {discountTag && (
+          <span className="spi-discount-badge">{discountTag}</span>
+        )}
+
         <img
           src={imageUrl}
           alt={name}
           className="spi-product-img"
           loading="lazy"
         />
-        {discountTag && (
-          <span className="spi-discount-badge">{discountTag}</span>
-        )}
       </div>
 
       {/* Details */}
@@ -83,17 +108,27 @@ const ProductCard = ({ product, onView }) => {
               <span className="spi-original-price">₹{formatPrice(original_price)}</span>
             )}
           </div>
-          <button
-            type="button"
-            className="spi-view-btn"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleCardClick();
-            }}
-            aria-label={`View ${name}`}
-          >
-            View
-          </button>
+          <div className="spi-card-actions" style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+            <button
+              type="button"
+              className={`spi-cart-btn ${added ? 'added' : ''}`}
+              onClick={handleAddToCart}
+              aria-label={`Add ${name} to Cart`}
+            >
+              {added ? '✓ Added' : '+ Cart'}
+            </button>
+            <button
+              type="button"
+              className="spi-view-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCardClick();
+              }}
+              aria-label={`View ${name}`}
+            >
+              View
+            </button>
+          </div>
         </div>
       </div>
     </div>

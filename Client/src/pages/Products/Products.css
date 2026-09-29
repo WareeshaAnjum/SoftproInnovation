@@ -236,22 +236,20 @@
 }
 
 /* Badges inside card */
-.spi-badge-container {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
-}
-
 .spi-card-badge {
-  background-color: var(--badge-featured-bg);
-  color: var(--badge-featured-text);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  background-color: var(--spi-orange, #ea580c);
+  color: #ffffff;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.05em;
   padding: 3px 8px;
   border-radius: 4px;
   text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
 /* Image box */
@@ -283,13 +281,16 @@
 .spi-discount-badge {
   position: absolute;
   top: 10px;
-  left: 10px;
-  background-color: var(--badge-discount-bg);
-  color: var(--badge-discount-text);
+  right: 10px;
+  left: auto;
+  z-index: 3;
+  background-color: #16a34a;
+  color: #ffffff;
   font-size: 10px;
   font-weight: 700;
-  padding: 2px 7px;
+  padding: 3px 8px;
   border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
 /* Card Content */
@@ -354,6 +355,30 @@
   font-size: 13px;
   color: var(--text-muted);
   text-decoration: line-through;
+}
+
+.spi-cart-btn {
+  background-color: var(--spi-orange-light, #fff7ed);
+  border: 1px solid var(--spi-orange-border, #ffedd5);
+  color: var(--spi-orange, #ea580c);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.spi-cart-btn:hover {
+  background-color: var(--spi-orange, #ea580c);
+  border-color: var(--spi-orange, #ea580c);
+  color: #ffffff;
+}
+
+.spi-cart-btn.added {
+  background-color: #16a34a !important;
+  border-color: #16a34a !important;
+  color: #ffffff !important;
 }
 
 .spi-view-btn {

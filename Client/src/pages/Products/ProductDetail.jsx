@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../../components/Header';
 import Footer from '../Home/Footer';
+import RazorpayPaymentModal from '../../components/RazorpayPaymentModal';
 import { PRODUCTS_DATA, resolveProductImage } from '../../data/productsData';
 import './ProductDetail.css';
 
@@ -13,6 +14,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [cartAlert, setCartAlert] = useState(null);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -316,8 +318,8 @@ const ProductDetail = () => {
                 <span><strong>Refund Policy:</strong> {refund_policy}</span>
               </div>
 
-              {/* Actions: Quantity Picker & Add to Cart */}
-              <div className="spi-detail-actions-row">
+              {/* Actions: Quantity Picker & Add to Cart & Buy Now with Razorpay */}
+              <div className="spi-detail-actions-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                 <div className="spi-detail-qty-picker">
                   <button
                     type="button"
@@ -342,14 +344,52 @@ const ProductDetail = () => {
                   type="button"
                   className="spi-detail-add-cart-btn"
                   onClick={handleAddToCart}
+                  style={{ flex: 1, minWidth: '160px' }}
                 >
                   Add to Cart (₹{(price * quantity).toLocaleString('en-IN')})
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setShowPaymentModal(true)}
+                  style={{
+                    backgroundColor: '#072654',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '8px',
+                    padding: '12px 20px',
+                    fontWeight: '700',
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    boxShadow: '0 4px 12px rgba(7,38,84,0.25)',
+                    flex: 1,
+                    minWidth: '180px',
+                  }}
+                >
+                  💳 Buy Now (Razorpay)
                 </button>
               </div>
             </div>
           </div>
         </div>
       </main>
+
+      <RazorpayPaymentModal
+        isOpen={showPaymentModal}
+        onClose={() => setShowPaymentModal(false)}
+        amount={price * quantity}
+        items={[{ id: product.id || product._id, name: product.name, quantity: quantity, price: product.price }]}
+        customerName={localStorage.getItem('name') || ''}
+        customerEmail={localStorage.getItem('email') || ''}
+        onSuccess={() => {
+          setCartAlert(`Payment successful! Order confirmed for ${product.name}.`);
+          setTimeout(() => setCartAlert(null), 4000);
+        }}
+      />
 
       <Footer />
     </>

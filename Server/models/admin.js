@@ -13,7 +13,14 @@ const adminSchema= mongoose.Schema({
         type:String,
         required:true
     },
-
+    resetCode:{
+        type:String,
+        default:null
+    },
+    resetCodeExpires:{
+        type:Date,
+        default:null
+    }
 },
 {
     timestamps:true

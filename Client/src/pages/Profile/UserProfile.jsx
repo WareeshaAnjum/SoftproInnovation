@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import Header from '../../components/Header';
 import Footer from '../Home/Footer';
+import RazorpayPaymentModal from '../../components/RazorpayPaymentModal';
 import './UserProfile.css';
 
 const DEFAULT_USER = {
@@ -51,6 +52,7 @@ const UserProfile = () => {
     newPassword: '',
     confirmPassword: ''
   });
+  const [showRazorpayModal, setShowRazorpayModal] = useState(false);
 
   // Load User Data & Cart on Mount
   useEffect(() => {
@@ -523,9 +525,9 @@ const UserProfile = () => {
                     <button
                       type="button"
                       className="user-primary-btn"
-                      onClick={() => showToast('Proceeding to secure checkout...')}
+                      onClick={() => setShowRazorpayModal(true)}
                     >
-                      Checkout Now →
+                      💳 Pay &amp; Checkout (Razorpay) →
                     </button>
                   </div>
                 </div>
@@ -704,6 +706,21 @@ const UserProfile = () => {
           )}
         </main>
       </div>
+
+      <RazorpayPaymentModal
+        isOpen={showRazorpayModal}
+        onClose={() => setShowRazorpayModal(false)}
+        amount={cartItems.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0)}
+        items={cartItems}
+        customerName={user.name}
+        customerEmail={user.email}
+        customerPhone={user.mobile}
+        onSuccess={() => {
+          localStorage.removeItem('cart');
+          setCartItems([]);
+          showToast('Payment successful! Order placed & saved to history.');
+        }}
+      />
 
       <Footer />
     </>
